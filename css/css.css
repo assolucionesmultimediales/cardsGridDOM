@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(190, 47, 163); /* Color de texto original */
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Alinea el contenido en columna (primero el h1, luego el grid) */
+    align-items: center; /* Centra horizontalmente el contenido */
+    font-family: sans-serif;
+    margin-top: 20px; /* Espacio entre el borde superior y el contenido */
+}
+
+h1 {
+    text-align: center;
+    font-weight: lighter;
+    margin-bottom: 2%; /* Espacio entre el h1 y el grid */
+    margin-top: 2%;
+}
+
+#grid {
+    width: 60%; /* Ancho del grid */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas con ancho igual */
+    gap: 20px; /* Espacio entre las cards */
+    padding: 20px; /* Espacio alrededor del grid */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc; /* Borde alrededor de cada card */
+    padding: 10px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.titulo {
+    font-family: sans-serif;
+    font-weight: lighter;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.foto {
+    width: 80%; /* Ajusta el ancho de las imágenes */
+    height: auto;
+}

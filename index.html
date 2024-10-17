@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/css.css">
+    <title>cardsgrid</title>
+</head>
+<body>
+<script>
+/* el body va a crear un div que sera un grid, por otro lado 
+se va a crear un div que sera una card para el grid, la cual constara de una foto y un titulo*/
+//guardo el body en una variable
+const body = document.querySelector("body");
+let header = document.createElement("h1");
+header.textContent = "Mis mangas preferidos"
+body.appendChild(header);
+let grid = document.createElement("div");
+//tengo que ponerle un id a mi contenedor grid
+grid.setAttribute("id","grid"); //cambiandole el atributo id por el que quiero
+body.appendChild(grid);//inserto en el body mi grid
+
+//ahora tengo que crear las cards, para eso necesito un div que contenga una imagen y un titulo
+//para los titulos tenemos dos opciones, podemos crear un array con los titulos,
+//o hacer uno generico que podamos manejar con el indice del for
+
+//array de titulos
+let titulos = [
+    "Sailor Moon Vol 1",
+    "Sailor Moon Vol 2",
+    "Sailor Moon Vol 3",
+    "Sailor Moon Vol 4",
+    "Naruto Vol 1",
+    "Naruto Vol 2",
+    "Naruto Vol 3",
+    "Naruto Vol 4",
+    "Jujutsu Kaisen Vol 1",
+    "Jujutsu Kaisen Vol 2",
+    "Jujutsu Kaisen Vol 3",
+    "Jujutsu Kaisen Vol 4",
+    "SNK Vol 1",
+    "SNK Vol 2",
+    "SNK Vol 3",
+    "SNK Vol 4"
+];
+
+//ahora tengo que crear la card y que esta se replique 16 veces
+//como se que tengo 16 imagenes BIEN ROTULADAS, 
+//aca es muy importante la ruta y la nomenclatura de los archivos
+//voy a hacer un for para meter adentro de esa card un titulo y una imagen
+
+let card;
+for(let i = 0; i <16; i ++){
+    card = document.createElement("div"); //creo el contenedor que sera la card
+    card.setAttribute("class","card"); //le agrego la clase card para poder modificarlas todas juntas
+    let titulo = document.createElement("h3");//creo el elemnto que sera el titulo
+    titulo.setAttribute("class","titulo"); // le agrego la clase para despues manipularlo todo junto
+    titulo.textContent = titulos[i]; //agrego el titulo por medio del array
+    let img = document.createElement("img");// creo el elemento img
+    img.setAttribute("src","./imgs/foto"+(i+1)+".jpg");//le cambio el src para que tenga la ruta de la imagen
+    img.setAttribute("class", "foto");//le agrego una clase para despues poder manipularlas todas juntas
+    card.appendChild(titulo);
+    card.appendChild(img);
+    //ahora agarro el grid y le pongo las cards
+    grid.appendChild(card); //esta accion tiene que estar adentro del for para que por cada vuelta se inserte la card de cada vuelta
+}
+
+//ahora si no eligieron fotos que sean del mismo tamaño deben tener un horror la pantalla
+//por eso les pusimos clases, para poder asignarles el mismo tamaño si asi lo desearamos
+//para que no sea engorroso todo en un mismo archivo, vamos a crear un archivo con el nombre css.css,
+// y dentro de la carpeta de nuestro proyecto crearemos una nueva carpeta que se llame css y 
+//ahi guardaran el archivo css.css, luego lo linkean dentro del head
+//<link rel="stylesheet" href="./css/css.css"> asi les tiene que quedar
+    </script>
+</body>
+</html>
